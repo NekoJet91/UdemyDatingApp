@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NewApp.Data;
 using Microsoft.EntityFrameworkCore;
+using NewApp.API.Data;
 
 namespace NewApp
 {
@@ -30,6 +31,7 @@ namespace NewApp
             services.AddDbContext<DataContext>( x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddCors();
+            services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

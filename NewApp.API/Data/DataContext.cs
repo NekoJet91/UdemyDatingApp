@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NewApp.API.Models;
 using NewApp.Models;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,7 @@ namespace NewApp.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options) {  }
 
         public DbSet<Value> Values { get; set; }
+
+        public DbSet<User> Users { get; set; }
     }
 }
